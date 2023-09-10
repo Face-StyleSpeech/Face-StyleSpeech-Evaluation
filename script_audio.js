@@ -95,6 +95,9 @@ const speakerArray_abx = [
     "NEW_I_VOX_Woman_U15", "NEW_I_VOX_Man_U15", "NEW_I_VOX_Woman_U16", "NEW_I_VOX_Man_U16"
 ]
 
+function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+  }
 
 for (var i = 0; i < speakerArray_mos.length; i++) {
     let speaker = speakerArray_mos[i]
@@ -104,7 +107,12 @@ for (var i = 0; i < speakerArray_mos.length; i++) {
 for (var i = 0; i < 8; i++) {
     let speaker1 = speakerArray_ab[i]
     let speaker2 = speakerArray_ab[i+8]
-    saveAB(speaker1, speaker2, i+1)
+    if (i % 2 == 0){
+        saveAB(speaker1, speaker2, i+1)
+    }
+    else{
+        saveAB(speaker2, speaker1, i+1)
+    }
 }
 
 for (var i = 0; i < 8; i++) {
